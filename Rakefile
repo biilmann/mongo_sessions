@@ -10,8 +10,9 @@ begin
     gem.email = "info@mathias-biilmann.net"
     gem.homepage = "http://github.com/biilmann/rails_mongo_sessions"
     gem.authors = ["Mathias Biilmann"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    
+    gem.add_dependency 'actionpack',  '~> 3.0'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/rails_mongo_sessions.rb"
+     "lib/rails_mongo_sessions/mongo_store.rb",
+     "rails_mongo_sessions.gemspec"
   ]
   s.homepage = %q{http://github.com/biilmann/rails_mongo_sessions}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -31,8 +32,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{MongoDB Session store for rails}
   s.test_files = [
-    "spec/spec_helper.rb",
-     "spec/testing_spec.rb"
+    "test/helper.rb",
+     "test/test_mongo_store.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -40,12 +41,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+      s.add_runtime_dependency(%q<actionpack>, ["~> 3.0"])
     else
-      s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+      s.add_dependency(%q<actionpack>, ["~> 3.0"])
     end
   else
-    s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
+    s.add_dependency(%q<actionpack>, ["~> 3.0"])
   end
 end
 
