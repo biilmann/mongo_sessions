@@ -1,6 +1,8 @@
 = rails_mongo_sessions
 
-Description goes here.
+MongoDB Session store for Rails 3
+
+Uses the ruby Mongo driver to store sessions in a MongoDB collection.
 
 == Note on Patches/Pull Requests
  

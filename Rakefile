@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rails_mongo_sessions"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{MongoDB Session store for rails}
+    gem.description = %Q{Uses the ruby Mongo driver to store sessions in a MongoDB collection}
     gem.email = "info@mathias-biilmann.net"
     gem.homepage = "http://github.com/biilmann/rails_mongo_sessions"
     gem.authors = ["Mathias Biilmann"]
