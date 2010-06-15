@@ -3,7 +3,7 @@ require 'action_dispatch/middleware/session/abstract_store'
 
 module ActionDispatch
   module Session
-    class MongoStore < Rack::Session::Abstract::ID
+    class MongoStore < AbstractStore
       include MongoSessions::MongoStore
     end
   end

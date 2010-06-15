@@ -11,8 +11,6 @@ begin
     gem.homepage = "http://github.com/biilmann/mongo_sessions"
     gem.authors = ["Mathias Biilmann"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-    
-    gem.add_dependency 'actionpack',  '~> 3.0'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
