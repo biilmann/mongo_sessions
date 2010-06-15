@@ -4,11 +4,11 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "rails_mongo_sessions"
-    gem.summary = %Q{MongoDB Session store for rails}
+    gem.name = "mongo_sessions"
+    gem.summary = %Q{MongoDB Session store for Rails and Rack}
     gem.description = %Q{Uses the ruby Mongo driver to store sessions in a MongoDB collection}
     gem.email = "info@mathias-biilmann.net"
-    gem.homepage = "http://github.com/biilmann/rails_mongo_sessions"
+    gem.homepage = "http://github.com/biilmann/mongo_sessions"
     gem.authors = ["Mathias Biilmann"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
     
@@ -48,7 +48,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rails_mongo_sessions #{version}"
+  rdoc.title = "mongo_sessions #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

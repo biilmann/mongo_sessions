@@ -3,6 +3,7 @@ require 'mongo'
 require 'action_dispatch'
 require 'action_dispatch/testing/integration'
 require 'helper'
+require 'mongo_sessions/rails_mongo_store'
 
 class RoutedRackApp
   attr_reader :routes
@@ -48,7 +49,7 @@ class MongoStoreTest < ActionController::IntegrationTest
     def rescue_action(e) raise end
   end
 
-  COLLECTION = Mongo::Connection.new.db('rails_mongo_sessions').collection('sessions')
+  COLLECTION = Mongo::Connection.new.db('mongo_sessions').collection('sessions')
   
   def test_setting_and_getting_session_value
     with_test_route_set do

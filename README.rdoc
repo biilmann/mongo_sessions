@@ -1,4 +1,4 @@
-= rails_mongo_sessions
+= mongo_sessions
 
 MongoDB Session store for Rails 3
 
