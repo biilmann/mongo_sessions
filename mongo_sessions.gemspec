@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mongo_sessions}
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathias Biilmann"]
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "lib/mongo_sessions/mongo_store.rb",
      "lib/mongo_sessions/rack_mongo_store.rb",
      "lib/mongo_sessions/rails_mongo_store.rb",
+     "mongo_sessions.gemspec",
      "test/helper.rb",
      "test/test_mongo_store.rb"
   ]

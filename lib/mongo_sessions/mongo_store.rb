@@ -30,7 +30,7 @@ module MongoSessions
 
     def set_session(env, sid, session_data, options = {})
       sid ||= generate_sid
-      collection.update({'_id' => sid}, {'_id' => sid, 's' => pack(session_data)}, {:upsert => true})
+      collection.update({'_id' => sid}, {'_id' => sid, 't' => Time.now, 's' => pack(session_data)}, {:upsert => true})
       sid
     end
     
