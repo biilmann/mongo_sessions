@@ -1,8 +1,24 @@
 = mongo_sessions
 
-MongoDB Session store for Rails 3
+MongoDB Session store for Rails 3 and Rack applications
 
 Uses the ruby Mongo driver to store sessions in a MongoDB collection.
+
+= When Using in Rails 3 Applications
+
+To use the session store in rails (In this example with Mongoid) add the rails store to your Gemfile:
+
+    gem "mongo_sessions", :require => "mongo_sessions/rails_mongo_store"
+  
+And change config/application.rb to something like:
+
+    config.session_store :mongo_store, :key => '_my_session', :collection => lambda { Mongoid.master.collection('sessions') }
+
+= When Using in Rack Applications
+
+Require the rack mongo store and add the Rack Middleware to your app:
+
+    use Rack::Session::MongoStore
 
 == Note on Patches/Pull Requests
  

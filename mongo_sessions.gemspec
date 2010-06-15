@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mongo_sessions}
-  s.version = "0.2.3"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathias Biilmann"]
@@ -24,19 +24,19 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/mongo_sessions/mongo_store.rb",
-     "mongo_sessions.gemspec",
-     "spec/spec.opts",
-     "spec/spec_helper.rb",
-     "spec/testing_spec.rb"
+     "lib/mongo_sessions/rack_mongo_store.rb",
+     "lib/mongo_sessions/rails_mongo_store.rb",
+     "test/helper.rb",
+     "test/test_mongo_store.rb"
   ]
   s.homepage = %q{http://github.com/biilmann/mongo_sessions}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{MongoDB Session store for rails}
+  s.summary = %q{MongoDB Session store for Rails and Rack}
   s.test_files = [
-    "spec/spec_helper.rb",
-     "spec/testing_spec.rb"
+    "test/helper.rb",
+     "test/test_mongo_store.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -44,14 +44,11 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
       s.add_runtime_dependency(%q<actionpack>, ["~> 3.0"])
     else
-      s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
       s.add_dependency(%q<actionpack>, ["~> 3.0"])
     end
   else
-    s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     s.add_dependency(%q<actionpack>, ["~> 3.0"])
   end
 end
