@@ -20,6 +20,12 @@ module MongoSessions
       
       super
     end
+    
+    def destroy(env)
+      if sid = current_session_id(env)
+        collection.remove({'_id' => sid})
+      end
+    end
 
     private
     def get_session(env, sid)
@@ -30,7 +36,7 @@ module MongoSessions
 
     def set_session(env, sid, session_data, options = {})
       sid ||= generate_sid
-      collection.update({'_id' => sid}, {'_id' => sid, 't' => Time.now, 's' => pack(session_data)}, {:upsert => true})
+      collection.update({'_id' => sid}, {'_id' => sid, 't' => Time.now, 's' => pack(session_data), 'user_id' => session_data['user_id']}, {:upsert => true})
       sid
     end
     
