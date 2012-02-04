@@ -16,8 +16,16 @@ And change config/application.rb to something like:
 
 = When Using in Rack Applications
 
-Require the rack mongo store and add the Rack Middleware to your app:
+Add the gem to your Gemfile:
 
+    gem "mongo_sessions", :require => "mongo_sessions/rack_mongo_store"
+
+If you are not using Bundler.require:
+
+    require "mongo_sessions/rack_mongo_store"
+
+Add the Rack Middleware to your app:
+    
     use Rack::Session::MongoStore
 
 == Note on Patches/Pull Requests
