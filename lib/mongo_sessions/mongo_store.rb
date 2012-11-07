@@ -8,8 +8,6 @@ module MongoSessions
     end
 
     def initialize(app, options = {})
-      require 'mongo'
-
       unless options[:collection]
         raise "To avoid creating multiple connections to MongoDB, " +
               "the Mongo Session Store will not create it's own connection " +
