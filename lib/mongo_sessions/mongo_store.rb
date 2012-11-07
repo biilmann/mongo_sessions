@@ -21,24 +21,43 @@ module MongoSessions
 
     def destroy(env)
       if sid = current_session_id(env)
-        collection.remove({'_id' => sid})
+        if collection.respond_to?(:remove)
+          collection.remove({'_id' => sid})
+        else
+          # moped
+          collection.where('_id' => sid).remove
+        end
       end
     end
 
     def destroy_session(env, sid, options)
-      collection.remove({'_id' => sid})
+      if collection.respond_to?(:remove)
+        collection.remove({'_id' => sid})
+      else
+        # moped
+        collection.where('_id' => sid).remove
+      end
     end
 
     private
     def get_session(env, sid)
       sid ||= generate_sid
-      data = collection.find_one('_id' => sid)
+      data = collection.where('_id' => sid).first
       [sid, data ? unpack(data['s']) : {}]
     end
 
     def set_session(env, sid, session_data, options = {})
       sid ||= generate_sid
-      collection.update({'_id' => sid}, {'_id' => sid, 't' => Time.now, 's' => pack(session_data), 'user_id' => session_data['user_id']}, {:upsert => true})
+
+      new_data = {'_id' => sid, 't' => Time.now, 's' => pack(session_data), 'user_id' => session_data['user_id']}
+
+      if collection.respond_to?(:update)
+        collection.update({'_id' => sid}, new_data, {:upsert => true})
+      else
+        # moped
+        collection.where('_id' => sid).update(new_data, [:upsert])
+      end
+
       sid
     end
 
