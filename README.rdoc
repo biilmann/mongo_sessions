@@ -10,9 +10,9 @@ To use the session store in rails (In this example with Mongoid) add the rails s
 
     gem "mongo_sessions", :require => "mongo_sessions/rails_mongo_store"
   
-And change config/application.rb to something like:
+And change config/initializers/session_store.rb (mongoid:3.0.16, mongo_sessions:0.3.5) to something like:
 
-    config.session_store :mongo_store, :key => '_my_session', :collection => lambda { Mongoid.master.collection('sessions') }
+    MyApp::Application.config.session_store :mongo_store, key: '_MyApp_session', collection: lambda { Mongoid.default_session[:sessions] }
 
 = When Using in Rack Applications
 
